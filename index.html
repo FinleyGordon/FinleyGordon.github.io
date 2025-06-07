@@ -26,15 +26,6 @@
             color: #1f2937; /* Darker text for headings */
             font-weight: 600; /* Semi-bold font weight */
         }
-        /* Styling for job titles within experience sections */
-        .job-title {
-            color: #1f2937;
-            font-weight: 600;
-        }
-        /* Styling for company names */
-        .company-name {
-            color: #4b5563; /* Medium gray color */
-        }
         /* Remove default list styling for custom bullets */
         ul {
             list-style: none;
@@ -56,11 +47,79 @@
             font-weight: bold; /* Bold the bullet */
         }
         /* Special styling for bullets in dark skill boxes */
-        .bg-indigo-800 ul li::before {
+        .skill-box ul li::before {
             color: #60a5fa; /* Light blue color for bullets on dark background */
         }
-        .bg-indigo-800 ul li {
+        .skill-box ul li {
             color: inherit; /* Inherit text color from parent */
+        }
+        
+        /* Shared component styles */
+        .skill-box {
+            background-color: #3730a3; /* bg-indigo-800 */
+            padding: 1.5rem; /* p-6 */
+            border-radius: 0.75rem; /* rounded-xl */
+            color: white;
+        }
+        
+        .skill-box-title {
+            font-weight: 600; /* font-semibold */
+            font-size: 1.125rem; /* text-lg */
+            margin-bottom: 0.75rem; /* mb-3 */
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-box-icon {
+            width: 1.25rem; /* w-5 */
+            height: 1.25rem; /* h-5 */
+            margin-right: 0.5rem; /* mr-2 */
+        }
+        
+        .skill-box-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            color: #d1d5db; /* text-gray-200 */
+        }
+        
+        .skill-box-list li {
+            margin-bottom: 0.5rem; /* space-y-2 equivalent */
+        }
+        
+        .experience-card {
+            margin-bottom: 1.5rem; /* mb-6 */
+            padding: 1rem; /* p-4 */
+            border-radius: 0.5rem; /* rounded-lg */
+            background-color: white;
+            transition: all 0.2s;
+        }
+        
+        .experience-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            background-color: #E0E4F9; /* bg-blue-50 */
+            color: #3730a3; /* text-indigo-800 */
+        }
+        
+        .experience-title {
+            color: #1f2937;
+            font-weight: 600;
+            font-size: 1.25rem; /* text-xl */
+            margin-bottom: 0.25rem; /* mb-1 */
+        }
+        
+        .experience-company {
+            color: #6b7280; /* text-gray-600 */
+            font-size: 1rem; /* text-md */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+        
+        .experience-description {
+            color: #374151; /* text-gray-700 */
+            font-size: 1rem;
+            line-height: 1.625; /* leading-relaxed */
         }
     </style>
 </head>
@@ -113,14 +172,14 @@
         <section class="mb-8">
             <h2 class="text-2xl section-heading mb-4">Key Skills</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <div class="bg-indigo-800 p-6 rounded-xl text-white">
-                    <h3 class="font-semibold text-lg mb-3 text-white flex items-center">
-                        <svg class="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                <div class="skill-box">
+                    <h3 class="skill-box-title">
+                        <svg class="skill-box-icon text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/>
                         </svg>
                         Programming
                     </h3>
-                    <ul class="list-none space-y-2 text-gray-200">
+                    <ul class="skill-box-list">
                         <li>C# / .NET 8</li>
                         <li>Java</li>
                         <li>TypeScript & JavaScript</li>
@@ -128,28 +187,28 @@
                         <li>PostgreSQL, HTML, CSS</li>
                     </ul>
                 </div>
-                <div class="bg-indigo-800 p-6 rounded-xl text-white">
-                    <h3 class="font-semibold text-lg mb-3 text-white flex items-center">
-                        <svg class="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <div class="skill-box">
+                    <h3 class="skill-box-title">
+                        <svg class="skill-box-icon text-green-400" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                         </svg>
                         Testing & QA
                     </h3>
-                    <ul class="list-none space-y-2 text-gray-200">
+                    <ul class="skill-box-list">
                         <li>Software Development Engineer in Test</li>
                         <li>Unit, Integration & Performance Testing</li>
                         <li>Test Automation (C#, TypeScript, Java, React, K6)</li>
                         <li>TDD & BDD Methodologies</li>
                     </ul>
                 </div>
-                <div class="bg-indigo-800 p-6 rounded-xl text-white">
-                    <h3 class="font-semibold text-lg mb-3 text-white flex items-center">
-                        <svg class="w-5 h-5 mr-2 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                <div class="skill-box">
+                    <h3 class="skill-box-title">
+                        <svg class="skill-box-icon text-purple-400" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z"/>
                         </svg>
                         Cloud & DevOps
                     </h3>
-                    <ul class="list-none space-y-2 text-gray-200">
+                    <ul class="skill-box-list">
                         <li>AWS, Terraform, Docker</li>
                         <li>CI/CD Pipelines (GitHub Actions, TeamCity, Azure)</li>
                         <li>Blue/Green Deployments</li>
@@ -162,10 +221,10 @@
 
         <section class="mb-8">
             <h2 class="text-2xl section-heading mb-4">Work Experience</h2>
-            <div class="mb-6 p-4 rounded-lg bg-white transition-all duration-200 hover:scale-[1.01] hover:shadow-md hover:bg-blue-50 hover:text-indigo-800">
-                <h3 class="job-title text-xl mb-1">Software Engineer II</h3>
-                <p class="company-name text-md text-gray-600 mb-2">Checkout.com | March 2023 - Present</p>
-                <ul class="text-gray-700 text-base leading-relaxed">
+            <div class="experience-card">
+                <h3 class="experience-title">Software Engineer II</h3>
+                <p class="experience-company">Checkout.com | March 2023 - Present</p>
+                <ul class="experience-description">
                     <li>Led design and implementation for multi-step payment processes, including PayPal, and a feature intelligently combining three payment endpoints for major clients like Sony PlayStation.</li>
                     <li>Achieved 99.999% uptime for a highly available and distributed system.</li>
                     <li>Recognized in a hackathon for a valuable customer-facing tool (2nd place out of 52 teams).</li>
@@ -176,28 +235,28 @@
                 </ul>
             </div>
 
-            <div class="mb-6 p-4 rounded-lg bg-white transition-all duration-200 hover:scale-[1.01] hover:shadow-md hover:bg-blue-50 hover:text-indigo-800">
-                <h3 class="job-title text-xl mb-1">Software Development Engineer in Test</h3>
-                <p class="company-name text-md text-gray-600 mb-2">Checkout.com | July 2022 - March 2023</p>
-                <ul class="text-gray-700 text-base leading-relaxed">
+            <div class="experience-card">
+                <h3 class="experience-title">Software Development Engineer in Test</h3>
+                <p class="experience-company">Checkout.com | July 2022 - March 2023</p>
+                <ul class="experience-description">
                     <li>Led improvements in testing solutions, migrating JavaScript tests to TypeScript and building a Cucumber test suite.</li>
                     <li>Designed a shared NPM library for secure testing of new event changes.</li>
                 </ul>
             </div>
 
-            <div class="mb-6 p-4 rounded-lg bg-white transition-all duration-200 hover:scale-[1.01] hover:shadow-md hover:bg-blue-50 hover:text-indigo-800">
-                <h3 class="job-title text-xl mb-1">Associate Software Developer in Test</h3>
-                <p class="company-name text-md text-gray-600 mb-2">Checkout.com | Jan 2021 - Jan 2022</p>
-                <ul class="text-gray-700 text-base leading-relaxed">
+            <div class="experience-card">
+                <h3 class="experience-title">Associate Software Developer in Test</h3>
+                <p class="experience-company">Checkout.com | Jan 2021 - Jan 2022</p>
+                <ul class="experience-description">
                     <li>Built JavaScript tools to automate business processes (e.g., merchant onboarding).</li>
                     <li>Created performance and load tests for high-traffic payment endpoints.</li>
                 </ul>
             </div>
 
-            <div class="mb-6 p-4 rounded-lg bg-white transition-all duration-200 hover:scale-[1.01] hover:shadow-md hover:bg-blue-50 hover:text-indigo-800">
-                <h3 class="job-title text-xl mb-1">Software Engineer in Test</h3>
-                <p class="company-name text-md text-gray-600 mb-2">Experian | Sept 2019 - Nov 2020</p>
-                <ul class="text-gray-700 text-base leading-relaxed">
+            <div class="experience-card">
+                <h3 class="experience-title">Software Engineer in Test</h3>
+                <p class="experience-company">Experian | Sept 2019 - Nov 2020</p>
+                <ul class="experience-description">
                     <li>Awarded "Hero Award" for designing and creating 400+ automated tests to a high standard.</li>
                     <li>Gained expertise in Java, Spring, JUnit, TypeScript, React, Selenium, Angular, Gradle, and CI/CD (Azure DevOps).</li>
                 </ul>
@@ -208,9 +267,9 @@
         <section class="mb-8">
             <h2 class="text-2xl section-heading mb-4">Education and Qualifications</h2>
             <div class="mb-4">
-                <h3 class="job-title text-xl mb-1">BSc Computer Science (First Class Honours)</h3>
-                <p class="company-name text-md text-gray-600 mb-2">University of Leicester | 2016-2019</p>
-                <ul class="text-gray-700 text-base leading-relaxed">
+                <h3 class="experience-title">BSc Computer Science (First Class Honours)</h3>
+                <p class="experience-company">University of Leicester | 2016-2019</p>
+                <ul class="experience-description">
                     <li>Relevant modules included: Advanced Web Application Design, Big Data Analysis, Advanced Databases, User Interfaces, Algorithm Design.</li>
                     <li>Dissertation project: Developed a web application for pattern-matching and analysis of stock market data (Java, PostgreSQL, JavaScript, HTML, Spring).</li>
                 </ul>
@@ -219,7 +278,7 @@
 
         <section class="mb-8">
             <h2 class="text-2xl section-heading mb-4">Hobbies and Interests</h2>
-            <ul class="text-gray-700 text-base leading-relaxed">
+            <ul class="experience-description">
                 <li>Practicing and competing in Brazilian Jiu Jitsu (Purple Belt, multiple competition wins).</li>
                 <li>Passionate about sports and physical health, regularly attending the gym.</li>
                 <li>Former member of Team Leicester Rugby League 1st Team.</li>
